@@ -1,0 +1,32 @@
+<p> </p>
+<p> </p>
+<h1> Your recipes </h1>
+<table style="width:60%">
+  <% @all_recipes.each_with_index do |item, index| %>
+    <tr>
+      <td>
+        <a href = <%="/description/#{index}"%> >
+          <%=
+          if item.done == false
+            "[ ] #{item.name} : #{item.description}"
+          else
+            "[X] #{item.name} : #{item.description}"
+          end
+          %>
+        </a>
+      </td>
+      <td>
+        <a href = <%="/remove/#{index}"%>><img src="images/delete_icon.png" height="15" title="Delete the recipe" alt="Delete the recipe"></a>
+      </td>
+      <td>
+        <a href = <%="/mark_as_done/#{index}"%>>done</a>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<p> </p>
+<p> </p>
+<h1> Choose an action below </h1>
+<ol>
+  <li><a href="/form_creation">Create a new recipe</a></li>
+</ol>
